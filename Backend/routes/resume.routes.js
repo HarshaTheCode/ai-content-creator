@@ -5,7 +5,7 @@ import { resumebuilder } from '../controllers/resume.controller.js';
 
 const routes= Router();
 
-routes.get("/create",(req,res)=>{
+routes.post("/create",(req,res)=>{
     resumebuilder(req,res)
 })
 
