@@ -120,7 +120,7 @@ Output example (structure only, do not repeat this explanation):
 `;
 
     const openRouter = new OpenRouter({
-  apiKey: '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',
+  apiKey: process.env.API_KEY,
   
 });
 const response = await openRouter.chat.send({
