@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+body{
+    background: #000;
+}
+html  {
+    scrollbar-width: auto;
+    scrollbar-color: #494949 rgba(0, 0, 0, 0) ;
+}
+
+
+
+
+
+.hide-vertical::-webkit-scrollbar {
+  width: 0px;       
+  height: 12px;     
+}
+
+
+.hide-vertical::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  min-height: 8px;
+}
+
+.hide-vertical::-webkit-scrollbar-corner {
+  background-color: transparent;
+  border-radius: 10px;
+  min-height: 8px;
+}

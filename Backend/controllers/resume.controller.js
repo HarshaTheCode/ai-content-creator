@@ -144,7 +144,7 @@ console.log("resume saved to the db ");
 
 
 
- await res.send(response)
+ await res.send(response.choices[0].message.content)
 }
 
 

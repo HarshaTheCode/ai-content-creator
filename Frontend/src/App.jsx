@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import { useEffect } from 'react';
 import { Routes,Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
@@ -13,14 +12,7 @@ import Signup from './pages/Signup.jsx';
 const App = () => {
 
 
-  async function axiosfecting() {
-     const data = await axios.post('/api/create')
-     console.log(data);
-  }
 
-  useEffect(() => {
-
-  }, [])
 
   return (<>
   <Routes>

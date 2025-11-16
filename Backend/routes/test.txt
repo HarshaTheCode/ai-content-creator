@@ -1,0 +1,66 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\LARGE Harsha} \\[4pt]
+    Full Stack Developer \\[4pt]
+    harsha.reddy@example.com \quad | \quad +91-9876543210 \quad | \quad Hyderabad, India \\[2pt]
+    \href{https://linkedin.com/in/harshareddy}{linkedin.com/in/harshareddy} \quad | \quad \href{https://harshareddy.dev}{harshareddy.dev}
+\end{center}
+
+\section*{Professional Summary}
+Passionate Full Stack Developer with strong problem-solving skills and a love for building impactful web applications using the MERN stack. Focused on creating scalable, efficient, and user-friendly products.
+
+\section*{Skills}
+\begin{itemize}[leftmargin=*, noitemsep]
+    \item React.js, Node.js, Express.js, MongoDB
+    \item JavaScript (ES6+), HTML5, CSS3
+    \item RESTful APIs, Git \& GitHub
+    \item Cloud Deployment (Render, Vercel)
+\end{itemize}
+
+\section*{Experience}
+\textbf{Full Stack Developer Intern} \hfill \textit{May 2024 -- Aug 2024} \\
+\textit{TechNova Solutions}
+\begin{itemize}[leftmargin=*, noitemsep]
+    \item Worked on building scalable REST APIs and integrating them with React-based dashboards.
+    \item Implemented CRUD operations and JWT authentication for 10K+ active users.
+    \item Improved API response time by 35\% by optimizing MongoDB queries.
+\end{itemize}
+
+\textbf{Freelance Web Developer} \hfill \textit{2023 -- 2024}
+\begin{itemize}[leftmargin=*, noitemsep]
+    \item Built responsive portfolio websites and mini e-commerce stores for small businesses.
+    \item Delivered 8+ custom websites using React \& Express.
+    \item Integrated payment gateway using Stripe and improved checkout UX.
+\end{itemize}
+
+\section*{Projects}
+\textbf{AI Resume Builder}
+\begin{itemize}[leftmargin=*, noitemsep]
+    \item Developed a full-stack web app using MERN + AI that auto-generates resume content and formats it dynamically.
+\end{itemize}
+
+\textbf{Task \& Habit Tracker}
+\begin{itemize}[leftmargin=*, noitemsep]
+    \item Created a productivity platform with streak analytics and habit insights using MongoDB Aggregation Pipelines.
+\end{itemize}
+
+\section*{Education}
+\textbf{Bachelor of Technology in Computer Science} \\
+Jawaharlal Nehru Technological University, Hyderabad \hfill \textit{Expected Graduation: 2025} \\
+CGPA: 8.5 / 10
+
+\section*{Certifications}
+\begin{itemize}[leftmargin=*, noitemsep]
+    \item JavaScript (HackerRank)
+    \item MongoDB for Developers (MongoDB University)
+\end{itemize}
+
+\end{document}

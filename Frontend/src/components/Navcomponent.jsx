@@ -1,24 +1,24 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import Home from '../pages/Home'
+import Button from './button'
 
 const Navcomponent = () => {
   return (
-    <nav className="flex justify-between items-center px-10 ">
+    <nav className="flex justify-between bg-black items-center px-10 ">
   <div className=" flex gap-5  py-3 ">
 
-    <Link to='/' >MyApp</Link>
-      <Link to='/'>Home</Link>
-      <Link to='/about'>About</Link>
-      <Link to='/contact'>Contact</Link>
+    <Button to='/' >MyApp</Button>
+      <Button to='/about'>About</Button>
+      <Button to='/contact'>Contact</Button>
        
-    
   </div>
 
   <div className="flex gap-3">
+
     <button className="cursor-pointer">🌙</button>
-    <Link to='/signin'>Sign in </Link>
+     <Button to='/signin'>Sign in </Button>
+
   </div>
+  
 </nav>
   )
 }
