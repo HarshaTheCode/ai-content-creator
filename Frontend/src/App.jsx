@@ -6,15 +6,23 @@ import About from './pages/About.jsx';
 import Contact from './pages/contact.jsx';
 import Signin from './pages/Signin.jsx';
 import Signup from './pages/Signup.jsx';
+import LLMresponse from './context/LLMresponse.jsx';
 
 
 
 const App = () => {
 
 
+ 
+
 
 
   return (<>
+
+
+  <LLMresponse>
+
+
   <Routes>
         {/* Route defines the path and the element (component) to render */}
         <Route path="/" element={<Home />} />
@@ -25,6 +33,7 @@ const App = () => {
         
       </Routes>
     
+  </LLMresponse>
   </>
   )
 }

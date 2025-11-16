@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Button from './button'
 
 const Navcomponent = () => {
@@ -6,7 +5,7 @@ const Navcomponent = () => {
     <nav className="flex justify-between bg-black items-center px-10 ">
   <div className=" flex gap-5  py-3 ">
 
-    <Button to='/' >MyApp</Button>
+    <Button to='/'>MyApp</Button>
       <Button to='/about'>About</Button>
       <Button to='/contact'>Contact</Button>
        
