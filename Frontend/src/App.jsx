@@ -7,6 +7,7 @@ import Contact from './pages/contact.jsx';
 import Signin from './pages/Signin.jsx';
 import Signup from './pages/Signup.jsx';
 import LLMresponse from './context/LLMresponse.jsx';
+import ProtectedRoutes from './pages/Auth/ProtectedRoutes.jsx';
 
 
 
@@ -26,7 +27,11 @@ const App = () => {
   <Routes>
         {/* Route defines the path and the element (component) to render */}
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={
+          <ProtectedRoutes>
+            <About/>
+          </ProtectedRoutes>
+            } />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/signin" element={<Signin/>} />
         <Route path="/signup" element={<Signup/>} />

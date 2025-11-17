@@ -2,11 +2,15 @@ import { configDotenv } from 'dotenv'
 configDotenv();
 
 import express, { json } from 'express'
-import userRoutes from './routes/user.routes.js'
 import { connectdb } from './Database/dbconnect.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+
 import resumeroutes from './routes/resume.routes.js';
+import userRoutes from './routes/user.routes.js'
+import authroutes from './routes/Auth.routes.js';
+
+
 
 const app = express()
 connectdb();
@@ -23,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.use('/user',userRoutes)
 app.use('/api',resumeroutes);
-
+app.use('/auth',authroutes)
 
 const port = process.env.PORT;
 app.listen(port, () => {

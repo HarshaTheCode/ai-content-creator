@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '../components/button'
+import axios from 'axios'
 
 const Signin = () => {
+
+
   return (<>
    <div className='flex p-10 bg-black justify-center items-center'>
      <div className='w-full h-155 bg-black px-10 pt-2 gap-3 text-white text-5xl flex justify-center items-center ' >
@@ -14,4 +17,4 @@ const Signin = () => {
   )
 }
 
-export default Signin
+export default Signin 

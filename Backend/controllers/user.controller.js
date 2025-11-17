@@ -20,7 +20,7 @@ export async function registerUser(req, res) {
     const email = req.body.email
     const myPlaintextPassword = req.body.password
 
-   const hash =await bcrypt.hash(myPlaintextPassword, 10)
+   const hash =await bcrypt.hash(myPlaintextPassword, 10 )
          
         const user = await usermodel.create({
             username: username,
@@ -39,8 +39,6 @@ export async function registerUser(req, res) {
 
     await res.cookie("Token", token) 
     
-
-
 
     await res.send("user created ")
 }

@@ -1,5 +1,5 @@
 
-import mongoose, { connect } from 'mongoose'
+import { connect } from 'mongoose'
 
 
 export  async function connectdb(){
