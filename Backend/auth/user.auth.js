@@ -10,7 +10,9 @@ export const userAuth = async (req,res)=>{
    const user= await usermodel.findOne({"email":data.email});
     
    if(!user){
-      console.log("user not find ");
+    
+   console.log("mail",data.email);
+      console.log("user not find 2");
     res.send('somthing went wrong 1')
     return;
    }
@@ -23,10 +25,16 @@ else{
    const plainpass= data.password;
    
 
+   console.log("passs",Actualpass);
+   console.log("mail",req.body);
+   
+   
    
    bcrypt.compare(plainpass, Actualpass, function(err, result) {
     
    if(!result){
+    console.log("pass incorect");
+    
        res.json({
         'auth':false
        })
