@@ -1,20 +1,59 @@
-import React, { useEffect } from 'react'
-import Button from '../components/button'
-import axios from 'axios'
+// taken help to write component 
+import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import {PostDataContext} from "../context/PostData.jsx";
+
 
 const Signin = () => {
 
 
-  return (<>
-   <div className='flex p-10 bg-black justify-center items-center'>
-     <div className='w-full h-155 bg-black px-10 pt-2 gap-3 text-white text-5xl flex justify-center items-center ' >
-    <Button to='/signup' className="border-2 border-white" >Signup</Button> <br />
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [Postdata ,setPostData]= useContext(PostDataContext);
+  const  navigator =useNavigate();
 
-<h1> this is Singin page </h1>
-    </div>
-    </div>
-   </>
-  )
-}
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    await setPostData({
+      'email':email,
+      'password':password
 
-export default Signin 
+    })
+    console.log(Postdata);
+     navigator('/contact');
+    
+  };
+
+  return (
+    <div >
+      <h2>Sign In</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="text-white border-2 border-white outline-0"
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="text-white border-2 border-white outline-0"
+         
+        />
+
+        <button
+          type="submit"
+          className="text-white border-2 border-white outline-0 cursor-pointer"
+        >
+          Sign In
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Signin;

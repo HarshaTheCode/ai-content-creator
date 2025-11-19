@@ -4,13 +4,13 @@ import { useState } from 'react';
 
 export const LLMcontext=createContext();
  
-export   const LLMresponse = ({ children }) => {
+   const LLMresponse = ({ children }) => {
  const [resumedata, setResumedata] = useState()
 
      async  function axiosfecting() {
        const data = await axios.post('/api/create')
       const resumecode= data.data;
-      setResumedata(resumecode      )
+      setResumedata(resumecode)
     }
 
   return (

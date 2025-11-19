@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
-import axios from 'axios'
+import { useContext } from 'react'
 import Hero from '../components/Hero'
 import Navcomponent from '../components/Navcomponent'
 import  { LLMcontext } from '../context/LLMresponse'
