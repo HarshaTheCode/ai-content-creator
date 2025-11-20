@@ -13,9 +13,9 @@ import Postdata from './context/PostData.jsx';
 const App = () => {
 
   return (<>
-<Postdata>
 
     <LLMresponse>
+<Postdata>
       <Routes>
         {/* Route defines the path and the element (component) to render */}
         <Route path="/" element={
@@ -37,8 +37,8 @@ const App = () => {
 
       </Routes>
 
-    </LLMresponse>
             </Postdata>
+    </LLMresponse>
   </>
   )
 }

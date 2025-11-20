@@ -1,9 +1,11 @@
 import usermodel from "../models/user.model.js";
 import bcrypt from 'bcrypt'
+import jwt from "jsonwebtoken";
 
 
 
 export const userAuth = async (req,res)=>{
+
 
     const data= req.body;
     
@@ -27,10 +29,9 @@ else{
 
    console.log("passs",Actualpass);
    console.log("mail",req.body);
+ 
    
-   
-   
-   bcrypt.compare(plainpass, Actualpass, function(err, result) {
+   bcrypt.compare(plainpass, Actualpass, async function(err, result) {
     
    if(!result){
     console.log("pass incorect");
@@ -40,6 +41,19 @@ else{
        })
         return;
     }
+
+    // res.clearCookie()
+    
+        const token = jwt.sign({
+    
+            Email:data.email,
+            
+        }, process.env.JWT_SECRET)
+        console.log("this is jwt token: ",token)
+    
+        await res.cookie("Token", token) 
+        
+    
 res.json({
     "auth":true
 })

@@ -21,6 +21,12 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           // ... other options
         },
+        '/user': {
+          // 🎯 Use the loaded environment variable
+          target: env.PROXY_URL,
+          changeOrigin: true,
+          // ... other options
+        }
       },
     },
     plugins: [react(), tailwindcss()],

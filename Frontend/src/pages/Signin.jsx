@@ -2,10 +2,9 @@
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import {PostDataContext} from "../context/PostData.jsx";
-
+import { Link } from "react-router-dom";
 
 const Signin = () => {
-
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +27,9 @@ const Signin = () => {
     <div >
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
+
+         
+
         <input
           type="email"
           placeholder="Email"
@@ -52,6 +54,7 @@ const Signin = () => {
           Sign In
         </button>
       </form>
+      <Link to='/signup' className="text-white border-2 border-white outline-0 cursor-pointer"> sing up</Link>
     </div>
   );
 };
