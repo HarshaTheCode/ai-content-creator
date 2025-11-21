@@ -1,27 +1,52 @@
 // taken help to write component 
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import {PostDataContext} from "../context/PostData.jsx";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import  { Authcontextdata } from "../context/AuthContext.jsx";
 
 const Signin = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [Postdata ,setPostData]= useContext(PostDataContext);
-  const  navigator =useNavigate();
+  
+const {isAuth,setIsAuth,loading,setLoading}=useContext(Authcontextdata)
+const navigate = useNavigate();
+const handleSubmit=(e)=>{
 
-  const handleSubmit = async(e) => {
+ 
+    
     e.preventDefault();
-    await setPostData({
+    
+    const postData={
       'email':email,
       'password':password
+      
+    }
+    const  UserFecting = async()=> {
+      
+      console.log("running");
 
-    })
-    console.log(Postdata);
-     navigator('/contact');
+      const data = await axios.post('/auth', postData)
+      const authuser = data.data.auth;
+      setIsAuth((Boolean(authuser)))
+      
+      console.log("authentication cheked ");
+      console.log(postData);
+      
+      setLoading(false)
+      
+      if(authuser){
+        navigate('/')
+      }
+
+    }
     
-  };
+    
+    
+  
+  UserFecting()
+};
 
   return (
     <div >
@@ -48,6 +73,7 @@ const Signin = () => {
         />
 
         <button
+        
           type="submit"
           className="text-white border-2 border-white outline-0 cursor-pointer"
         >
@@ -57,6 +83,10 @@ const Signin = () => {
       <Link to='/signup' className="text-white border-2 border-white outline-0 cursor-pointer"> sing up</Link>
     </div>
   );
+
+
+  
 };
+
 
 export default Signin;

@@ -8,6 +8,7 @@ const Navcomponent = () => {
     <Button to='/'>MyApp</Button>
       <Button to='/about'>About</Button>
       <Button to='/contact'>Contact</Button>
+      <Button to="/details">Create resume </Button>
        
   </div>
 

@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/button'
 import { useState } from 'react';
 import axios from 'axios';
@@ -10,6 +10,8 @@ const Signup = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+   const  navigator =useNavigate();
+
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ const Signup = () => {
 
 const axioss=    await axios.post('/user/registration',data)
    console.log(data);
-   
+    navigator('/');
     
   };
   return (

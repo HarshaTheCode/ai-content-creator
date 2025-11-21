@@ -5,8 +5,9 @@ import Contact from './pages/contact.jsx';
 import Signin from './pages/Signin.jsx';
 import Signup from './pages/Signup.jsx';
 import LLMresponse from './context/LLMresponse.jsx';
-import Authresponse from './pages/Auth/authresponse.jsx';
-import Postdata from './context/PostData.jsx';
+import AuthContext from './context/AuthContext.jsx';
+import Details from './pages/Details.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 
 
@@ -15,29 +16,44 @@ const App = () => {
   return (<>
 
     <LLMresponse>
-<Postdata>
-      <Routes>
-        {/* Route defines the path and the element (component) to render */}
-        <Route path="/" element={
-          <Home />
-        } />
-        <Route path="/about" element={<Authresponse>
+      <AuthContext>
 
-          <About />
-        </Authresponse>} />
-        <Route path="/contact" element={
-          
-          <Authresponse>
+        <Routes>
+          {/* Route defines the path and the element (component) to render */}
+          <Route path="/" element={
+         
+              <Home />
+          } />
+          <Route path="/about" element={
+   <ProtectedRoute>
 
-            <Contact />
-          </Authresponse>
-        } />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
+     <About />
+            </ProtectedRoute>
+          } />
+          <Route path="/contact" element={
 
-      </Routes>
 
-            </Postdata>
+   <ProtectedRoute>
+
+     <Contact />
+            </ProtectedRoute>
+
+          } />
+          <Route path='/details' element={
+
+
+   <ProtectedRoute>
+
+     <Details />
+            </ProtectedRoute>
+
+          } />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+
+        </Routes>
+
+      </AuthContext>
     </LLMresponse>
   </>
   )
