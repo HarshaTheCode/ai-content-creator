@@ -8,6 +8,7 @@ export const userAuth = async (req,res)=>{
 
 
     const data= req.body;
+    console.log(data);
     
    const user= await usermodel.findOne({"email":data.email});
     
@@ -16,7 +17,7 @@ export const userAuth = async (req,res)=>{
    console.log("mail",data.email);
       console.log("user not find 2");
     res.send('somthing went wrong 1')
-    return;
+    return; 
    }
 else{
     console.log(user);
@@ -60,9 +61,5 @@ res.json({
 
    
 });
-
-
-
-
 
 } 

@@ -38,6 +38,7 @@ export async function registerUser(req, res) {
     console.log("this is jwt token: ",token)
 
     await res.cookie("Token", token) 
+    console.log("user created ");
     
 
     await res.send("user created ")

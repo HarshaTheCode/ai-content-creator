@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 import resumeroutes from './routes/resume.routes.js';
 import userRoutes from './routes/user.routes.js'
 import authroutes from './routes/Auth.routes.js';
+import Homeroutes from './routes/Home.routes.js';
 
 
 
@@ -20,11 +21,9 @@ app.use(cookieParser())
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  
-  res.send('app was in home page endpoint  ') 
-})
 
+
+app.use('/',Homeroutes)
 app.use('/user',userRoutes)
 app.use('/api',resumeroutes);
 app.use('/auth',authroutes)
