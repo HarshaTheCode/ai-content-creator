@@ -15,7 +15,13 @@ const userschema = mongoose.Schema({
         type:String,
         require:true,
         minlegth:[6,"password must be at least 6 charector length "]
-    }
+    },
+    GeneratedResumeIds:[ 
+        {
+            type: mongoose.Schema.Types.ObjectId, // reference to the user
+            ref: 'GeneratedResume',
+        } 
+        ]
 
 });
 

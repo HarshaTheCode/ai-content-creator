@@ -1,6 +1,7 @@
 import usermodel from "../models/user.model.js";
 import bcrypt from 'bcrypt'
 import jwt from "jsonwebtoken";
+import cookieParser from "cookie-parser";
 
 
 
@@ -20,7 +21,11 @@ export const userAuth = async (req,res)=>{
     return; 
    }
 else{
-    console.log(user);
+  const id =user._id;
+  const stringId=id.toString();
+   await res.cookie("Id",stringId);
+    console.log('cookie sended');
+    
        
    }
 
@@ -29,7 +34,6 @@ else{
    
 
    console.log("passs",Actualpass);
-   console.log("mail",req.body);
  
    
    bcrypt.compare(plainpass, Actualpass, async function(err, result) {

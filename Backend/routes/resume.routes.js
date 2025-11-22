@@ -1,24 +1,25 @@
 import { Router } from 'express';
 import { resumebuilder } from '../controllers/resume.controller.js';
 import path from 'path';
+//test resume import 
+import TestResumeResponse from './testresume.js';
+import { getResumesForUser } from '../controllers/Get-Resume.controller.js';
 
 
 
 
 const routes= Router();
 
-const __dirname = import.meta.dirname;
 
-routes.post("/create",(req,res)=>{
+routes.post("/:id/create",async(req,res)=>{
     // resumebuilder(req,res)
-
-
- const filepath=path.join(__dirname,'./test.txt')
-
-    console.log("/create was runnings");
-    res.sendFile(filepath)
-    
+    TestResumeResponse(req,res);
 })
+
+routes.post("/getresumes",async(req,res)=>{
+    getResumesForUser(req,res);
+})
+
 
 
 export default routes;

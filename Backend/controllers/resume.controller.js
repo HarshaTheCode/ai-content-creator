@@ -4,7 +4,7 @@ import resumemodel from '../models/resume.model.js';
 
 export const  resumebuilder =  async(req,res)=>{
    
-    const name = "Harsha  ";
+const name = "Harsha  ";
 const title = "Full Stack Developer";
 const email = "harsha.reddy@example.com";
 const phone = "+91-9876543210";
@@ -139,7 +139,8 @@ console.log(response.choices[0].message.content)
 const saveresume = await resumemodel.create({
   latexContent:response.choices[0].message.content
 })
-
+// we need to implement the test changes to this files the saving of the resume to the user 
+// data we need to impliment hear forther after the devlopment is completent 
 console.log("resume saved to the db ");
 
 

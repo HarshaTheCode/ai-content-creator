@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 const GeneratedResumeSchema = new mongoose.Schema(
   {
     // user reference (optional for now)
-    // userId: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    //   default: null,
-    // },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
+    },
 
     // store the generated LaTeX content
     latexContent: {
