@@ -8,6 +8,7 @@ import LLMresponse from './context/LLMresponse.jsx';
 import AuthContext from './context/AuthContext.jsx';
 import Details from './pages/Details.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import HistoryOfResumes from './pages/HistoryOfResumes.jsx';
 
 
 
@@ -50,6 +51,7 @@ const App = () => {
           } />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path='/history' element={<HistoryOfResumes/>}/>
 
         </Routes>
 

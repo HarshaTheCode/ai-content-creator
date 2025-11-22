@@ -1,6 +1,7 @@
 import  { createContext } from 'react'
 import axios from 'axios'
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 
 export const LLMcontext=createContext();
  
@@ -8,9 +9,18 @@ export const LLMcontext=createContext();
  const [resumedata, setResumedata] = useState()
 
      async  function axiosfecting() {
-       const data = await axios.post('/api/create')
-      const resumecode= data.data;
-      setResumedata(resumecode)
+       try {
+      const id=Cookies.get('Id')
+       //j:"6920b7433f2933b72d3c01e5"
+        console.log(id);
+        
+        
+         const data = await axios.post(`/api/${id}/create`)
+         const resumecode= data.data;
+         setResumedata(resumecode)
+        } catch(error){
+          console.log('the real errorr',error);
+        }
     }
 
   return (
