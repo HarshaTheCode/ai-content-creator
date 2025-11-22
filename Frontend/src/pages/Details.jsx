@@ -48,7 +48,7 @@ const Details = () => {
         placeholder={placeholder}
         value={formData[name]}
         onChange={handleChange}
-        className="w-full px-3 py-2 text-white bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full px-3 py-2 text-white bg-black border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
     </div>
   );
@@ -65,19 +65,20 @@ const Details = () => {
         value={formData[name]}
         onChange={handleChange}
         rows="4"
-        className="w-full px-3 py-2 text-white bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full px-3 py-2 text-white bg-black border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white placeholder-gray-500"
       ></textarea>
     </div>
   );
 
   return (<>
 
-  <Navcomponent/>
-    <div className="w-full max-w-4xl mx-auto p-8 my-10 bg-gray-900 text-white rounded-lg shadow-lg">
+    <div className="min-h-screen bg-black text-white">
+      <Navcomponent/>
+      <div className="w-full max-w-4xl mx-auto p-8 my-10 bg-black text-white rounded-lg border border-gray-700">
       <h2 className="text-3xl font-bold mb-8 text-center">Enter Your Details</h2>
       <form onSubmit={handleSubmit}>
         {/* Personal Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 ">
           {renderInput('name', 'Your full name')}
           {renderInput('email', 'your.email@example.com', 'email')}
           {renderInput('phone', 'Your phone number', 'tel')}
@@ -86,17 +87,17 @@ const Details = () => {
           {renderInput('website', 'Your personal website or portfolio')}
         </div>
 
-        <hr className="my-6 border-gray-700" />
+        <hr className="my-6 border-gray-600 " />
 
         {/* Summary */}
         {renderTextarea('summary', 'A brief professional summary about yourself.')}
 
-        <hr className="my-6 border-gray-700" />
+        <hr className="my-6 border-gray-600" />
 
         {/* Skills */}
         {renderTextarea('skills', 'List your skills, separated by commas (e.g., React, Node.js, Python)')}
 
-        <hr className="my-6 border-gray-700" />
+        <hr className="my-6 border-gray-600" />
 
         {/* Experience */}
         <h3 className="text-xl font-semibold mb-4">Experience</h3>
@@ -105,7 +106,7 @@ const Details = () => {
             'Describe your work experience. You can add multiple roles.'
         )}
 
-        <hr className="my-6 border-gray-700" />
+        <hr className="my-6 border-gray-600" />
 
         {/* Education */}
         <h3 className="text-xl font-semibold mb-4">Education</h3>
@@ -114,7 +115,7 @@ const Details = () => {
             'List your degrees or relevant education.'
         )}
 
-        <hr className="my-6 border-gray-700" />
+        <hr className="my-6 border-gray-600" />
 
         {/* Projects */}
         <h3 className="text-xl font-semibold mb-4">Projects</h3>
@@ -123,7 +124,7 @@ const Details = () => {
             'Describe personal or professional projects you have worked on.'
         )}
 
-        <hr className="my-6 border-gray-700" />
+        <hr className="my-6 border-gray-600" />
 
         {/* Certifications */}
         <h3 className="text-xl font-semibold mb-4">Certifications</h3>
@@ -134,20 +135,21 @@ const Details = () => {
 
         <div className="mt-8 text-center">
          
-      <button onClick={axiosfecting} className="px-8 py-3 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors"
+          <button onClick={axiosfecting} className="px-8 py-3 bg-white text-black font-bold rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-colors"
       
       >click </button>
         </div>
       </form>
     </div>
-    <div className='  flex flex-col justify-center items-center bg-black px-10 pt-2 text-white text-sm' >
-        <pre className='w-full   bg-gray-950  mb-10 overflow-y-scroll overflow-x-auto hide-vertical rounded-2xl   flex flex-col   px-10 py-10  text-white text-sm  ' >
+      <div className='w-full max-w-4xl mx-auto px-8 pb-8'>
+        <pre className='w-full bg-black border border-gray-700 mb-10 overflow-y-scroll overflow-x-auto hide-vertical rounded-2xl p-10 text-white text-sm' >
          
           <code>
             {resumedata}
             </code>
             
           </pre>
+      </div>
     </div>
       </>
   );

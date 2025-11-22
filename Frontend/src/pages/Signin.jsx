@@ -49,42 +49,42 @@ const handleSubmit=(e)=>{
 };
 
   return (
-    <div >
-      <h2>Sign In</h2>
-      <form onSubmit={handleSubmit}>
-
-         
-
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="text-white border-2 border-white outline-0"
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="text-white border-2 border-white outline-0"
-         
-        />
-
-        <button
-        
-          type="submit"
-          className="text-white border-2 border-white outline-0 cursor-pointer"
-        >
-          Sign In
-        </button>
-      </form>
-      <Link to='/signup' className="text-white border-2 border-white outline-0 cursor-pointer"> sing up</Link>
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
+      <div className="w-full max-w-xs">
+        <h2 className="text-3xl font-bold mb-6 text-center">Sign In</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="p-2 bg-black border border-white rounded-md focus:outline-none placeholder-gray-500"
+            required
+          />
+ 
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="p-2 bg-black border border-white rounded-md focus:outline-none placeholder-gray-500"
+            required
+          />
+ 
+          <button
+            type="submit"
+            className="p-2 bg-white text-black font-bold rounded-md hover:bg-gray-300 transition-colors"
+          >
+            Sign In
+          </button>
+        </form>
+        <p className="text-center mt-4">
+          Don't have an account?{" "}
+          <Link to="/signup" className="font-bold hover:underline">Sign Up</Link>
+        </p>
+      </div>
     </div>
   );
-
-
   
 };
 
