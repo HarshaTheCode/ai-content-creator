@@ -41,11 +41,7 @@ let content ;
     console.log(Resume);
     
    content= Resume.map((resume,index) => (
-      
-      
     <div key={index}>
-
-       
         <h1 className="text-white"> 
         {resume.latexContent}
         </h1>
@@ -53,16 +49,14 @@ let content ;
       </div>
    ))
     
-        
-    // content = Resume.map((resume, index) => (
-      
+    // content = Resume.map((resume, index) => {
     //   <div key={ index}> 
     //     <h1 className="text-white"> 
     //       {resume.latexContent}
     //     </h1>
     //     <h1 className="text-white">running</h1>
     //   </div>
-    // ));
+    // });
 
 
   }

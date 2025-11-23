@@ -18,43 +18,38 @@ const App = () => {
 
     <LLMresponse>
       <AuthContext>
-
-        <Routes>
+      <Routes>
           {/* Route defines the path and the element (component) to render */}
-          <Route path="/" element={
-         
-              <Home />
-          } />
+       
           <Route path="/about" element={
-   <ProtectedRoute>
-
-     <About />
+            <ProtectedRoute>
+              <About />
             </ProtectedRoute>
           } />
+
           <Route path="/contact" element={
-
-
-   <ProtectedRoute>
-
-     <Contact />
+            <ProtectedRoute>
+              <Contact />
             </ProtectedRoute>
-
           } />
+
           <Route path='/details' element={
-
-
-   <ProtectedRoute>
-
-     <Details />
+            <ProtectedRoute>
+              <Details />
             </ProtectedRoute>
-
           } />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path='/history' element={<HistoryOfResumes/>}/>
 
         </Routes>
+        {/* public routes of web site  */}
 
+        <Routes>
+          <Route path="/" element={ <Home />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path='/history' element={<HistoryOfResumes />} />
+
+
+        </Routes>
       </AuthContext>
     </LLMresponse>
   </>
