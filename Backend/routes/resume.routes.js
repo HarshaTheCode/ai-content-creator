@@ -11,7 +11,7 @@ import { getResumesForUser } from '../controllers/Get-Resume.controller.js';
 const routes= Router();
 
 
-routes.post("/:id/create",async(req,res)=>{
+routes.post("/create",async(req,res)=>{
     // resumebuilder(req,res)
     TestResumeResponse(req,res);
 })

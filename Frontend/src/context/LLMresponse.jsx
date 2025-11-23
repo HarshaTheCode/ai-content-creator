@@ -12,10 +12,10 @@ export const LLMcontext=createContext();
        try {
       const id=Cookies.get('Id')
        //j:"6920b7433f2933b72d3c01e5"
-        console.log(id);
+   
         
         
-         const data = await axios.post(`/api/${id}/create`)
+         const data = await axios.post(`/api/create`)
          const resumecode= data.data;
          setResumedata(resumecode)
         } catch(error){

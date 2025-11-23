@@ -5,14 +5,22 @@ import resumemodel from '../models/resume.model.js';
 export const  resumebuilder =  async(req,res)=>{
    
 const name = "Harsha  ";
-const title = "Full Stack Developer";
 const email = "harsha.reddy@example.com";
 const phone = "+91-9876543210";
 const location = "Hyderabad, India";
 const linkedin = "linkedin.com/in/harshareddy";
 const website = "harshareddy.dev";
+const education = `
+- **Bachelor of Technology in Computer Science**  
+Jawaharlal Nehru Technological University, Hyderabad  
+(Expected Graduation: 2025)  
+CGPA: 8.5 / 10
+`;
+
+const title = "Full Stack Developer";
 
 const summary = "Passionate Full Stack Developer with strong problem-solving skills and a love for building impactful web applications using the MERN stack. Focused on creating scalable, efficient, and user-friendly products.";
+
 
 const skills = [
   "React.js",
@@ -37,13 +45,6 @@ const experience = `
   Built responsive portfolio websites and mini e-commerce stores for small businesses.  
   • Delivered 8+ custom websites using React & Express.  
   • Integrated payment gateway using Stripe and improved checkout UX.
-`;
-
-const education = `
-- **Bachelor of Technology in Computer Science**  
-  Jawaharlal Nehru Technological University, Hyderabad  
-  (Expected Graduation: 2025)  
-  CGPA: 8.5 / 10
 `;
 
 const projects = `

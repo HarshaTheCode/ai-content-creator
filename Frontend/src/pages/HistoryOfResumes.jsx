@@ -45,10 +45,13 @@ let content ;
         <h1 className="text-white"> 
         {resume.latexContent}
         </h1>
-      <h1 className="text-white">running</h1>
       </div>
    ))
-    
+     
+   // hear one braket kiiled my sleep for 2:30 hrs time i waled up till 4 30 just figure it out i am using
+   // wrong braket 
+
+
     // content = Resume.map((resume, index) => {
     //   <div key={ index}> 
     //     <h1 className="text-white"> 
