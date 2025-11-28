@@ -1,10 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { LLMcontext } from '../context/LLMresponse';
 import Navcomponent from '../components/Navcomponent';
+import GlassCard from '../components/ui/GlassCard';
+import NeonButton from '../components/ui/NeonButton';
+import NeonInput from '../components/ui/NeonInput';
+import NeonTextArea from '../components/ui/NeonTextArea';
+import PageLayout from '../components/ui/PageLayout';
 
 const Details = () => {
 
-      const [resumedata, axiosfecting] = useContext(LLMcontext);
+  const [resumedata, axiosfecting] = useContext(LLMcontext);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -36,125 +41,92 @@ const Details = () => {
     // TODO: Add logic to send data to the backend or another component
   };
 
-  const renderInput = (name, placeholder, type = 'text') => (
-    <div className="mb-4">
-      <label htmlFor={name} className="block text-gray-300 text-sm font-bold mb-2 capitalize">
-        {name}
-      </label>
-      <input
-        type={type}
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        value={formData[name]}
-        onChange={handleChange}
-        className="w-full px-3 py-2 text-white bg-black border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-    </div>
-  );
+  return (
+    <PageLayout>
+      <Navcomponent />
 
-  const renderTextarea = (name, placeholder) => (
-     <div className="mb-6">
-      <label htmlFor={name} className="block text-gray-300 text-sm font-bold mb-2 capitalize">
-        {name}
-      </label>
-      <textarea
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        value={formData[name]}
-        onChange={handleChange}
-        rows="4"
-        className="w-full px-3 py-2 text-white bg-black border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white placeholder-gray-500"
-      ></textarea>
-    </div>
-  );
+      <div className="container mx-auto px-4 py-10 flex flex-col lg:flex-row gap-8">
 
-  return (<>
+        {/* Left Side: Form */}
+        <div className="w-full lg:w-3/5">
+          <GlassCard className="animate-fade-in-up">
+            <h2 className="text-3xl font-bold mb-8 text-center text-white">
+              Enter Your Details
+            </h2>
 
-    <div className="min-h-screen bg-black text-white">
-      <Navcomponent/>
-      <div className="w-full max-w-4xl mx-auto p-8 my-10 bg-black text-white rounded-lg border border-gray-700">
-      <h2 className="text-3xl font-bold mb-8 text-center">Enter Your Details</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Personal Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 ">
-          {renderInput('name', 'Your full name')}
-          {renderInput('email', 'your.email@example.com', 'email')}
-          {renderInput('phone', 'Your phone number', 'tel')}
-          {renderInput('location', 'City, Country')}
-          {renderInput('linkedin', 'Your LinkedIn profile URL')}
-          {renderInput('website', 'Your personal website or portfolio')}
+            <form onSubmit={handleSubmit}>
+              {/* Personal Information */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+                <NeonInput name="name" label="Full Name" placeholder="Your full name" value={formData.name} onChange={handleChange} />
+                <NeonInput name="email" label="Email" type="email" placeholder="your.email@example.com" value={formData.email} onChange={handleChange} />
+                <NeonInput name="phone" label="Phone" type="tel" placeholder="Your phone number" value={formData.phone} onChange={handleChange} />
+                <NeonInput name="location" label="Location" placeholder="City, Country" value={formData.location} onChange={handleChange} />
+                <NeonInput name="linkedin" label="LinkedIn" placeholder="Profile URL" value={formData.linkedin} onChange={handleChange} />
+                <NeonInput name="website" label="Website" placeholder="Portfolio URL" value={formData.website} onChange={handleChange} />
+              </div>
+
+              <div className="my-8 border-t border-white/10" />
+
+              {/* Summary */}
+              <NeonTextArea name="summary" label="Professional Summary" placeholder="A brief professional summary about yourself." value={formData.summary} onChange={handleChange} />
+
+              <div className="my-8 border-t border-white/10" />
+
+              {/* Skills */}
+              <NeonTextArea name="skills" label="Skills" placeholder="List your skills, separated by commas (e.g., React, Node.js, Python)" value={formData.skills} onChange={handleChange} />
+
+              <div className="my-8 border-t border-white/10" />
+
+              {/* Experience */}
+              <h3 className="text-xl font-semibold mb-4 text-gray-200">Experience</h3>
+              <NeonTextArea name="experience" placeholder="Describe your work experience. You can add multiple roles." value={formData.experience} onChange={handleChange} />
+
+              <div className="my-8 border-t border-white/10" />
+
+              {/* Education */}
+              <h3 className="text-xl font-semibold mb-4 text-gray-200">Education</h3>
+              <NeonTextArea name="education" placeholder="List your degrees or relevant education." value={formData.education} onChange={handleChange} />
+
+              <div className="my-8 border-t border-white/10" />
+
+              {/* Projects */}
+              <h3 className="text-xl font-semibold mb-4 text-gray-200">Projects</h3>
+              <NeonTextArea name="projects" placeholder="Describe personal or professional projects you have worked on." value={formData.projects} onChange={handleChange} />
+
+              <div className="my-8 border-t border-white/10" />
+
+              {/* Certifications */}
+              <h3 className="text-xl font-semibold mb-4 text-gray-200">Certifications</h3>
+              <NeonTextArea name="certifications" placeholder="List any certifications you have earned." value={formData.certifications} onChange={handleChange} />
+
+              <div className="mt-10 text-center">
+                <NeonButton onClick={axiosfecting} className="w-full md:w-auto text-lg">
+                  Generate Resume
+                </NeonButton>
+              </div>
+            </form>
+          </GlassCard>
         </div>
 
-        <hr className="my-6 border-gray-600 " />
-
-        {/* Summary */}
-        {renderTextarea('summary', 'A brief professional summary about yourself.')}
-
-        <hr className="my-6 border-gray-600" />
-
-        {/* Skills */}
-        {renderTextarea('skills', 'List your skills, separated by commas (e.g., React, Node.js, Python)')}
-
-        <hr className="my-6 border-gray-600" />
-
-        {/* Experience */}
-        <h3 className="text-xl font-semibold mb-4">Experience</h3>
-        {renderTextarea(
-            'experience',
-            'Describe your work experience. You can add multiple roles.'
-        )}
-
-        <hr className="my-6 border-gray-600" />
-
-        {/* Education */}
-        <h3 className="text-xl font-semibold mb-4">Education</h3>
-        {renderTextarea(
-            'education',
-            'List your degrees or relevant education.'
-        )}
-
-        <hr className="my-6 border-gray-600" />
-
-        {/* Projects */}
-        <h3 className="text-xl font-semibold mb-4">Projects</h3>
-        {renderTextarea(
-            'projects',
-            'Describe personal or professional projects you have worked on.'
-        )}
-
-        <hr className="my-6 border-gray-600" />
-
-        {/* Certifications */}
-        <h3 className="text-xl font-semibold mb-4">Certifications</h3>
-        {renderTextarea(
-            'certifications',
-            'List any certifications you have earned.'
-        )}
-
-        <div className="mt-8 text-center">
-         
-          <button onClick={axiosfecting} className="px-8 py-3 bg-white text-black font-bold rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-colors"
-      
-      >click </button>
+        {/* Right Side: Result Preview */}
+        <div className="w-full lg:w-2/5">
+          <div className="sticky top-10">
+            <GlassCard className="h-[80vh] flex flex-col">
+              <h3 className="text-xl font-bold mb-4 text-gray-200">Generated Result</h3>
+              <div className="flex-grow overflow-hidden relative rounded-xl bg-black/50 border border-white/10">
+                <pre className='w-full h-full overflow-y-auto p-6 text-xs text-gray-300 font-mono hide-vertical'>
+                  <code>
+                    {resumedata || "Your generated resume content will appear here..."}
+                  </code>
+                </pre>
+              </div>
+            </GlassCard>
+          </div>
         </div>
-      </form>
-    </div>
-      <div className='w-full max-w-4xl mx-auto px-8 pb-8'>
-        <pre className='w-full bg-black border border-gray-700 mb-10 overflow-y-scroll overflow-x-auto hide-vertical rounded-2xl p-10 text-white text-sm' >
-         
-          <code>
-            {resumedata}
-            </code>
-            
-          </pre>
+
       </div>
-    </div>
-      </>
+    </PageLayout>
   );
 };
 
 export default Details;
-
-// className="px-8 py-3 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors"

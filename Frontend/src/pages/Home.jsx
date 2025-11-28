@@ -1,18 +1,30 @@
 import { useContext, useEffect } from 'react'
 import Hero from '../components/Hero'
 import Navcomponent from '../components/Navcomponent'
+import FeaturesSection from '../components/FeaturesSection'
+import ClientsSection from '../components/ClientsSection'
+import TestimonialsSection from '../components/TestimonialsSection'
+import { StaggerTestimonials } from '../components/ui/Testimonial'
+import Footer from '../components/Footer'
+import ScrollAnimation from '../components/ui/ScrollAnimation'
 
 const Home = () => {
 
 
   return (<>
-  
-  <Navcomponent/>
-    <div className='  flex flex-col justify-center items-center bg-black px-10 pt-2 text-white text-sm  '>
-      <h1>home page</h1>
-      <Hero/>
-      
-    </div>
+
+    <Navcomponent />
+    <main className='relative overflow-hidden'>
+      <Hero />
+      <FeaturesSection />
+      <ClientsSection />
+      <ScrollAnimation animation="fade-up">
+        <StaggerTestimonials />
+      </ScrollAnimation>
+    </main>
+    <ScrollAnimation animation="fade-in">
+      <Footer />
+    </ScrollAnimation>
   </>
   )
 }
