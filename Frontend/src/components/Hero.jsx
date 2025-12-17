@@ -1,88 +1,99 @@
 import React from 'react';
-import GlassCard from './ui/GlassCard';
-import { Link } from 'react-router-dom';
+import { Trophy } from 'lucide-react';
+import CTAButton from './CTAButton';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-[80vh] pl-5 flex items-center justify-center overflow-hidden bg-black">
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-50"
-      >
-        <source src="/bg-video.mp4" type="video/mp4" />
-      </video>
+    <div className="relative h-screen w-full bg-gradient-to-b from-[#FDFBF6] via-[#F4E9D5] to-[#C8B298] overflow-hidden">
+      <div className="h-full w-full flex flex-col pt-20">
 
-      {/* Background Glow Effects - Monochrome */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[128px] pointer-events-none z-0 animate-blob" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-[128px] pointer-events-none z-0 animate-blob" style={{ animationDelay: '2s' }} />
-
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-
-        {/* Left Content: Text & Input */}
-        <div className="space-y-8 px-10">
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">
-              <span className="block animate-fade-in-up opacity-0" style={{ animationDelay: '0.1s' }}>Craft Your</span>
-              <span className="block animate-fade-in-up opacity-0" style={{ animationDelay: '0.3s' }}>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-white animate-shimmer">
-                  Perfect Resume
-                </span>
-              </span>
-              <span className="block animate-fade-in-up opacity-0" style={{ animationDelay: '0.5s' }}>with AI</span>
-            </h1>
-            <p className="text-lg text-gray-400 max-w-xl leading-relaxed animate-fade-in-up opacity-0" style={{ animationDelay: '0.7s' }}>
-              Transform your career story into a compelling resume in seconds.
-              Our AI-powered builder ensures you stand out from the crowd with
-              premium designs and intelligent content suggestions.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s' }}>
-            <input
-              type="text"
-              placeholder="Enter your current job title..."
-              className="flex-1 px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+        {/* Background Elements */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl mx-auto">
+            <img
+              src="/model.png"
+              alt="Professional Developer"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[75vh] md:h-[95vh] object-contain drop-shadow-2xl"
             />
-            <Link to='/signin' className="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-              Get Started
-            </Link>
           </div>
+        </div>
 
-          <div className="flex items-center gap-4 text-sm text-gray-500 animate-fade-in-up opacity-0" style={{ animationDelay: '1.1s' }}>
-            <div className="flex -space-x-2">
-              {[
-                "https://i.pinimg.com/1200x/43/8f/80/438f80b684aee056afe2201ad32ea79c.jpg",
-                "https://i.pinimg.com/736x/50/b7/16/50b716a944c630c9a324b54be6a90027.jpg",
-                "https://i.pinimg.com/736x/50/d4/29/50d429ea5c9afe0ef9cb3c96f784bea4.jpg",
-                "https://i.pinimg.com/736x/73/45/4c/73454c79fb89a793e474309ffcc71174.jpg"
-              ].map((src, i) => (
-                <div key={i} className="w-8 h-8 rounded-full bg-black border border-white/20 flex items-center justify-center overflow-hidden">
-                  <img src={src} alt={`User ${i + 1}`} className="w-full h-full object-cover" />
-                </div>
-              ))}
+        {/* Content Container */}
+        <div className="container mx-auto px-4 md:px-8 relative z-10 flex-1 flex flex-col">
 
-
+          {/* Top Section: Headlines */}
+          <div className="flex flex-col items-center text-center space-y-6 mt-8 md:mt-12">
+            <div className="flex items-center gap-2 text-[#4A4A4A] font-medium text-sm md:text-base">
+              <Trophy className="w-5 h-5 text-[#B8860B]" />
+              <span>#1 Rated Tech Resume Builder 2025</span>
             </div>
-            <p>Trusted by 10,000+ professionals</p>
+
+            <div className="space-y-2">
+              <h1 className="text-3xl -mt-2 md:text-6xl lg:text-8xl font-bold text-[#1a1a1a]">
+                Want to be a Developer?
+              </h1>
+              <h2 className="text-3xl md:text-6xl lg:text-8xl font-serif italic text-[#1a1a1a]">
+                Get Hired Faster
+              </h2>
+            </div>
+          </div>
+
+          {/* Middle & Bottom Section: Floating Elements */}
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-12 gap-8 pb-6 md:pb-10 relative">
+
+            {/* Left Column */}
+            <div className="md:col-span-3 flex flex-col h-full relative">
+              <div className="md:absolute md:top-1/2 md:-translate-y-1/2 md:left-0 lg:left-8 z-20">
+                <div className="inline-flex items-center gap-3 bg-[#0f172a] text-white px-5 py-3 rounded-full shadow-lg whitespace-nowrap">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  <span className="font-medium text-sm">500+ Devs Placed this Month</span>
+                </div>
+              </div>
+
+              <div className="mt-auto flex flex-col gap-3 relative z-20">
+                <div className="flex -space-x-3">
+                  {[
+                    "https://i.pinimg.com/1200x/43/8f/80/438f80b684aee056afe2201ad32ea79c.jpg",
+                    "https://i.pinimg.com/736x/50/b7/16/50b716a944c630c9a324b54be6a90027.jpg",
+                    "https://i.pinimg.com/736x/50/d4/29/50d429ea5c9afe0ef9cb3c96f784bea4.jpg"
+                  ].map((src, i) => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-[#D8C0A6] overflow-hidden">
+                      <img src={src} alt={`User ${i}`} className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-[#4A4A4A] font-medium max-w-[200px] leading-tight">
+                  Trusted by candidates now working at Google, Amazon, and Meta.
+                </p>
+              </div>
+            </div>
+
+            {/* Center Column (Spacer) */}
+            <div className="md:col-span-6 hidden md:block"></div>
+
+            {/* Right Column */}
+            <div className="md:col-span-3 flex flex-col h-full items-start md:items-end text-left md:text-right relative">
+              <div className="md:absolute md:top-1/2 md:-translate-y-1/2 md:right-0 lg:right-8 max-w-xs z-20">
+                <p className="text-[#1a1a1a] text-lg leading-relaxed">
+                  Stop getting filtered out. We use the world's smartest LLMs to craft ATS-proof resumes that highlight your code and get you straight to the interview.
+                </p>
+              </div>
+
+              <div className="mt-auto relative z-20">
+                <CTAButton
+                  to="/signin"
+                  className="px-8 py-4 bg-black text-white hover:bg-black/90 transition-colors"
+                >
+                  Build My Dev Resume
+                </CTAButton>
+              </div>
+            </div>
+
           </div>
         </div>
-
-        {/* Right Content: Visual/Glass Card */}
-        <div className="relative hidden lg:block animate-fade-in-up opacity-0" style={{ animationDelay: '0.5s' }}>
-          <div className="animate-float">
-            <GlassCard className="relative z-20 transform rotate-[-5deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto p-0 m-0">
-              <img
-                src="/resume.jpg"
-                className="w-full aspect-[2/4] h-155 rounded-l shadow-2xl object-cover"
-              />
-            </GlassCard>
-          </div>
-        </div>
-
       </div>
     </div>
   );
