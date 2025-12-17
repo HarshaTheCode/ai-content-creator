@@ -58,10 +58,10 @@ const TestimonialsSection = () => {
             <div className="container mx-auto px-15 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                     <div>
-                        <h2 className="text-2xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+                        <h2 className="text-2xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                             Loved by Professionals
                         </h2>
-                        <p className="text-gray-400 max-w-lg">
+                        <p className="text-gray-300 max-w-lg">
                             See what our users have to say about their experience building resumes with our AI-powered tool.
                         </p>
                     </div>
@@ -96,20 +96,20 @@ const TestimonialsSection = () => {
                     {testimonials.map((testimonial) => (
                         <div
                             key={testimonial.id}
-                            className="min-w-[350px] md:min-w-[400px] p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md snap-start hover:border-white/20 transition-colors"
+                            className="min-w-[350px] md:min-w-[400px] p-8 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md snap-start hover:border-white/30 transition-colors"
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <img
                                     src={testimonial.image}
                                     alt={testimonial.name}
-                                    className="w-12 h-12 rounded-full object-cover border border-white/20"
+                                    className="w-12 h-12 rounded-full object-cover border border-white/30"
                                 />
                                 <div>
                                     <h3 className="font-semibold text-white">{testimonial.name}</h3>
-                                    <p className="text-sm text-gray-400">{testimonial.role}</p>
+                                    <p className="text-sm text-gray-200">{testimonial.role}</p>
                                 </div>
                             </div>
-                            <p className="text-gray-300 leading-relaxed">
+                            <p className="text-white leading-relaxed">
                                 "{testimonial.text}"
                             </p>
                             <div className="mt-6 flex gap-1">

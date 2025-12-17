@@ -20,7 +20,7 @@ const FeaturesSection = () => {
             type: "card",
             title: "Beat the bots.",
             description: "Our resumes are engineered with clean code and standardized formatting to ensure you pass Applicant Tracking Systems every time.",
-            color: "bg-zinc-500",
+            color: "bg-zinc-600",
             delay: 200
         }
     ];
@@ -59,26 +59,26 @@ const FeaturesSection = () => {
 
         if (!isCard) {
             return (
-                <SpotlightCard className="w-fit p-4 rounded-full border border-white/10 bg-zinc-900/50 backdrop-blur-sm hover:bg-zinc-900/80 transition-colors">
+                <SpotlightCard className="w-fit p-4 rounded-full border border-[#B8860B]/20 bg-white/60 backdrop-blur-sm hover:bg-white/90 transition-colors shadow-sm">
                     <div className="flex items-center gap-3">
-                        <div className={`p-1.5 rounded-full ${feature.color} flex items-center justify-center shadow-lg shadow-${feature.color}/20`}>
+                        <div className={`p-1.5 rounded-full ${feature.color} flex items-center justify-center shadow-md`}>
                             <CheckIcon />
                         </div>
-                        <span className="text-sm font-semibold text-zinc-100">{feature.title}</span>
+                        <span className="text-sm font-semibold text-[#1a1a1a]">{feature.title}</span>
                     </div>
                 </SpotlightCard>
             );
         }
 
         return (
-            <SpotlightCard className={`p-6 rounded-3xl border border-white/10 bg-zinc-900/50 backdrop-blur-sm w-full max-w-sm hover:bg-zinc-900/80 transition-colors ${align === 'left' ? 'ml-auto' : 'mr-auto'}`}>
+            <SpotlightCard className={`p-6 rounded-3xl border border-[#B8860B]/20 bg-white/60 backdrop-blur-sm w-full max-w-sm hover:bg-white/90 transition-colors shadow-xl ${align === 'left' ? 'ml-auto' : 'mr-auto'}`}>
                 <div className="flex gap-4">
-                    <div className={`shrink-0 h-10 w-10 rounded-full ${feature.color} flex items-center justify-center shadow-lg shadow-${feature.color}/20`}>
+                    <div className={`shrink-0 h-10 w-10 rounded-full ${feature.color} flex items-center justify-center shadow-md`}>
                         <CheckIcon />
                     </div>
                     <div>
-                        <h4 className="text-white font-bold mb-2 text-lg leading-tight">{feature.title}</h4>
-                        <p className="text-sm text-zinc-400 leading-relaxed">
+                        <h4 className="text-[#1a1a1a] font-bold mb-2 text-lg leading-tight">{feature.title}</h4>
+                        <p className="text-sm text-[#4A4A4A] leading-relaxed">
                             {feature.description}
                         </p>
                     </div>
@@ -88,7 +88,7 @@ const FeaturesSection = () => {
     };
 
     return (
-        <section className="py-24 bg-black text-white overflow-hidden relative selection:bg-white/20">
+        <section className="py-24 bg-[#FDFBF6] text-[#1a1a1a] overflow-hidden relative selection:bg-[#B8860B]/20">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
 
@@ -104,18 +104,18 @@ const FeaturesSection = () => {
                     {/* Center Column - Text */}
                     <div className="text-center py-12 lg:py-0 order-first lg:order-none">
                         <ScrollAnimation animation="fade-up">
-                            <span className="font-serif italic text-3xl md:text-4xl block mb-2 text-zinc-400">
+                            <span className="font-serif italic text-3xl md:text-4xl block mb-2 text-[#B8860B]">
                                 Hallo!
                             </span>
                         </ScrollAnimation>
                         <ScrollAnimation animation="fade-up" delay={100}>
-                            <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter text-white leading-[0.9]">
+                            <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter text-[#1a1a1a] leading-[0.9]">
                                 Engineered for<br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">Success.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#B8860B] to-[#8B4513]">Success.</span>
                             </h2>
                         </ScrollAnimation>
                         <ScrollAnimation animation="fade-up" delay={200}>
-                            <p className="text-xl md:text-2xl text-zinc-500 font-medium leading-relaxed max-w-lg mx-auto">
+                            <p className="text-xl md:text-2xl text-[#4A4A4A] font-medium leading-relaxed max-w-lg mx-auto">
                                 Crafting careers with strategy, design, and empathy.
                             </p>
                         </ScrollAnimation>
@@ -135,7 +135,7 @@ const FeaturesSection = () => {
             </div>
 
             {/* Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-zinc-800/20 rounded-full blur-[100px] -z-10 pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F4E9D5]/40 rounded-full blur-[100px] -z-10 pointer-events-none" />
         </section>
     );
 };

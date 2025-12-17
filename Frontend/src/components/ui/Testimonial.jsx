@@ -36,8 +36,8 @@ function TestimonialCard({ position, testimonial, handleMove, cardSize }) {
             className={cn(
                 "absolute left-1/2 top-1/2 cursor-pointer rounded-2xl border p- transition-all duration-500 ease-in-out flex flex-col items-center justify-center text-center",
                 isCenter
-                    ? "z-10 bg-white/10 backdrop-blur-xl border-white/20 text-white shadow-[0_0_50px_rgba(255,255,255,0.1)]"
-                    : "z-0 bg-white/5 backdrop-blur-sm border-white/5 text-gray-500 hover:border-white/20 opacity-40 hover:opacity-60"
+                    ? "z-10 bg-white/80 backdrop-blur-xl border-[#B8860B]/20 text-[#1a1a1a] shadow-[0_0_50px_rgba(184,134,11,0.1)]"
+                    : "z-0 bg-white/40 backdrop-blur-sm border-black/5 text-[#4A4A4A] hover:border-black/10 opacity-40 hover:opacity-60"
             )}
             style={{
                 width: cardSize,
@@ -52,7 +52,7 @@ function TestimonialCard({ position, testimonial, handleMove, cardSize }) {
         >
             <div className={cn(
                 "mb-6 p-1 rounded-full border",
-                isCenter ? "border-white/30" : "border-white/10"
+                isCenter ? "border-[#B8860B]/30" : "border-black/5"
             )}>
                 <img
                     src={testimonial.imgSrc}
@@ -63,7 +63,7 @@ function TestimonialCard({ position, testimonial, handleMove, cardSize }) {
 
             <h3 className={cn(
                 "text-lg sm:text-xl font-light leading-relaxed mb-6",
-                isCenter ? "text-white" : "text-gray-400"
+                isCenter ? "text-[#1a1a1a]" : "text-[#4A4A4A]"
             )}>
                 "{testimonial.testimonial}"
             </h3>
@@ -71,13 +71,13 @@ function TestimonialCard({ position, testimonial, handleMove, cardSize }) {
             <div className="mt-auto">
                 <p className={cn(
                     "text-sm font-bold tracking-wider uppercase",
-                    isCenter ? "text-white" : "text-gray-500"
+                    isCenter ? "text-[#1a1a1a]" : "text-[#4A4A4A]"
                 )}>
                     {testimonial.by.split(",")[0]}
                 </p>
                 <p className={cn(
                     "text-xs mt-1",
-                    isCenter ? "text-gray-400" : "text-gray-600"
+                    isCenter ? "text-[#4A4A4A]" : "text-[#6B7280]"
                 )}>
                     {testimonial.by.split(",").slice(1).join(",")}
                 </p>
@@ -121,12 +121,12 @@ export function StaggerTestimonials() {
 
     return (
         <div
-            className="relative px-50 w-full overflow-hidden bg-black py-10"
+            className="relative px-50 w-full overflow-hidden bg-[#FDFBF6] py-10"
             style={{ height: 700 }}
         >
             {/* Background Glows */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[128px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-[128px] pointer-events-none" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#F4E9D5]/60 rounded-full blur-[128px] pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#F4E9D5]/60 rounded-full blur-[128px] pointer-events-none" />
 
             {testimonialsList.map((testimonial, index) => {
                 const position = testimonialsList.length % 2
@@ -147,8 +147,8 @@ export function StaggerTestimonials() {
                     onClick={() => handleMove(-1)}
                     className={cn(
                         "flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300",
-                        "bg-white/5 border border-white/10 text-white hover:bg-white/20 hover:scale-110",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                        "bg-white/80 border border-black/5 text-[#1a1a1a] hover:bg-white hover:scale-110 shadow-sm",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]/50"
                     )}
                     aria-label="Previous testimonial"
                 >
@@ -158,8 +158,8 @@ export function StaggerTestimonials() {
                     onClick={() => handleMove(1)}
                     className={cn(
                         "flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300",
-                        "bg-white/5 border border-white/10 text-white hover:bg-white/20 hover:scale-110",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                        "bg-white/80 border border-black/5 text-[#1a1a1a] hover:bg-white hover:scale-110 shadow-sm",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]/50"
                     )}
                     aria-label="Next testimonial"
                 >
