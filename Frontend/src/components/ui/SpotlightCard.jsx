@@ -36,16 +36,16 @@ const SpotlightCard = ({ children, className = "" }) => {
             onBlur={handleBlur}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:bg-zinc-900/80 ${className}`}
+            className={`relative overflow-hidden ${className}`}
         >
             <div
-                className="pointer-events-none absolute -inset-px transition duration-300"
+                className="pointer-events-none absolute -inset-px transition duration-300 z-10"
                 style={{
                     opacity,
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.15), transparent 40%)`,
+                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.1), transparent 40%)`,
                 }}
             />
-            <div className="relative h-full">
+            <div className="relative h-full z-20">
                 {children}
             </div>
         </div>

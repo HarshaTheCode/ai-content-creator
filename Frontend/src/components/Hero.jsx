@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Trophy } from 'lucide-react';
 import CTAButton from './CTAButton';
 
 const Hero = () => {
+  const [taglineIndex, setTaglineIndex] = useState(0);
+
+  const rotatingText = [
+    { main: "Get Hired", highlight: "Faster" },
+    { main: "Land Jobs", highlight: "Easier" },
+    { main: "Stand Out", highlight: "Instantly" },
+    { main: "Code Your", highlight: "Future" }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTaglineIndex((prev) => (prev + 1) % rotatingText.length);
+    }, 3000); // Change text every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-screen w-full bg-gradient-to-b from-[#FDFBF6] via-[#F4E9D5] to-[#C8B298] overflow-hidden">
       <div className="h-full w-full flex flex-col pt-20">
 
         {/* Background Elements */}
-        <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 pointer-events-none z-30">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl mx-auto">
             <img
-              src="/model.png"
+              src="/model3.png"
               alt="Professional Developer"
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[75vh] md:h-[95vh] object-contain drop-shadow-2xl"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[65vh] md:h-[95vh] object-contain drop-shadow-2xl"
             />
           </div>
         </div>
@@ -23,18 +39,25 @@ const Hero = () => {
 
           {/* Top Section: Headlines */}
           <div className="flex flex-col items-center text-center space-y-6 mt-8 md:mt-12">
-            <div className="flex items-center gap-2 text-[#4A4A4A] font-medium text-sm md:text-base">
+            <div className="flex -mt-10 items-center gap-2 text-[#4A4A4A] font-medium text-sm md:text-base animate-fade-in-up" style={{ animationDelay: '0s' }}>
               <Trophy className="w-5 h-5 text-[#B8860B]" />
               <span>#1 Rated Tech Resume Builder 2025</span>
             </div>
 
-            <div className="space-y-2">
-              <h1 className="text-3xl -mt-2 md:text-6xl lg:text-8xl font-bold text-[#1a1a1a]">
-                Want to be a Developer?
+            <div className="space-y-2 ">
+              <h1 className="text-3xl -mt-2 md:text-6xl lg:text-8xl font-bold text-[#1a1a1a] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                Want to get a  Job?
               </h1>
-              <h2 className="text-3xl md:text-6xl lg:text-8xl font-serif italic text-[#1a1a1a]">
-                Get Hired Faster
-              </h2>
+              <div className='flex  justify-center  md:gap-6 animate-fade-in-up' style={{ animationDelay: '0.4s' }}>
+                <div key={taglineIndex} className="flex   md:gap-6 animate-fade-in-up">
+                  <h2 className="text-3xl md:text-6xl lg:text-8xl font-serif italic text-[#1a1a1a]">
+                    {rotatingText[taglineIndex].main}
+                  </h2>
+                  <span className="text-3xl md:text-6xl lg:text-8xl font-serif italic text-[#B8860B]">
+                    {rotatingText[taglineIndex].highlight}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
