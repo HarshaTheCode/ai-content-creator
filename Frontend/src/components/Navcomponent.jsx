@@ -1,18 +1,48 @@
 import Button from './button'
 import CTAButton from './CTAButton'
 import { useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const Navcomponent = () => {
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const [scrolled, setScrolled] = useState(false);
 
-  const textColorClass = isHome ? 'text-black/80 hover:text-black' : 'text-white/80 hover:text-white';
-  const hoverBgClass = isHome ? 'hover:bg-black/5' : 'hover:bg-white/10';
-  const logoColorClass = isHome ? 'text-black/80 hover:text-black' : 'text-white/80 hover:text-white';
+  // Extend this list with all pages that use the light theme
+  const isLightBackground = ['/', '/about', '/contact', '/details', '/history', '/signin', '/signup'].includes(location.pathname);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const textColorClass = isLightBackground
+    ? (scrolled ? 'text-black hover:text-black/70' : 'text-black/80 hover:text-black')
+    : (scrolled ? 'text-white hover:text-white/70' : 'text-white/80 hover:text-white');
+
+  const hoverBgClass = isLightBackground ? 'hover:bg-black/5' : 'hover:bg-white/10';
+
+  const logoColorClass = isLightBackground ? 'text-black' : 'text-white';
+
+  // Background logic:
+  // If scrolled: use a blurred background matching the theme.
+  // If not scrolled: transparent.
+  const navBackgroundClass = scrolled
+    ? (isLightBackground ? 'bg-[#FDFBF6]/90 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-black/90 backdrop-blur-md shadow-sm border-b border-white/10')
+    : 'bg-transparent';
+
+  const navPaddingClass = scrolled ? 'py-3' : 'py-4'; // Slightly smaller when scrolled
 
   return (
-    <nav className="absolute top-0 w-full z-50 flex justify-between items-center px-6 md:px-10 py-4 bg-transparent transition-all duration-300">
-      <div className="flex gap-5 py-3 items-center">
+    <nav className={`fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-10 transition-all duration-300 ${navBackgroundClass} ${navPaddingClass}`}>
+      <div className="flex gap-5 py-2 items-center">
 
         <Button to='/' className={`${textColorClass} ${hoverBgClass} font-medium`}>MyApp</Button>
         <div className="hidden md:flex gap-2">

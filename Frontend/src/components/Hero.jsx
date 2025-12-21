@@ -107,7 +107,7 @@ const Hero = () => {
 
               <div className="mt-auto relative z-20">
                 <CTAButton
-                  to="/signin"
+                  to="/details"
                   className="px-8 py-4 bg-black text-white hover:bg-black/90 transition-colors"
                 >
                   Build My Dev Resume

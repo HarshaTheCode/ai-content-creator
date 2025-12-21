@@ -1,16 +1,177 @@
-import React from 'react'
-import Navcomponent from '../components/Navcomponent'
-import PageLayout from '../components/ui/PageLayout'
+import React, { useState } from 'react';
+import Navcomponent from '../components/Navcomponent';
+import { Mail, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Contact = () => {
-  return (
-    <PageLayout>
-      <Navcomponent />
-      <div className='w-full min-h-screen flex justify-center items-center px-10 pt-20 bg-black text-white text-5xl'>
-        contact page
-      </div>
-    </PageLayout>
-  )
-}
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
-export default Contact
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log('Form submitted:', formData);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FDFBF6] text-[#1a1a1a] selection:bg-[#B8860B]/20 selection:text-[#1a1a1a] relative overflow-hidden">
+      {/* Ambient Background Glow */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#B8860B]/5 rounded-full blur-[100px] animate-blob" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-[#B8860B]/5 rounded-full blur-[100px] animate-blob [animation-delay:2000ms]" />
+      </div>
+
+      <div className="relative z-10">
+        <Navcomponent />
+
+        {/* Main Content Container */}
+        <div className="pt-28 pb-20 px-6 lg:px-8 max-w-7xl mx-auto">
+
+          {/* Header Section */}
+          <div className="max-w-2xl mb-16 animate-fade-in-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight mb-6 text-[#1a1a1a]">
+              Get in touch
+            </h1>
+            <p className="text-lg md:text-xl text-[#4A4A4A] leading-relaxed">
+              Have a question about the AI Resume Builder? Interested in partnering?
+              Or just want to say hi? We'd love to hear from you.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+            {/* Contact Information (Left Column) */}
+            <div className="space-y-12 animate-fade-in-up [animation-delay:200ms]">
+
+              {/* Contact Details */}
+              <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-[#1a1a1a]/5 rounded-lg text-[#B8860B]">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Email</h3>
+                    <a href="mailto:hello@airesumebuilder.com" className="text-[#4A4A4A] hover:text-[#B8860B] transition-colors">
+                      hello@airesumebuilder.com
+                    </a>
+                    <p className="text-sm text-[#4A4A4A]/60 mt-1">Support is available 24/7.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-[#1a1a1a]/5 rounded-lg text-[#B8860B]">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Office</h3>
+                    <p className="text-[#4A4A4A]">
+                      123 Innovation Drive<br />
+                      San Francisco, CA 94103
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div>
+                <h3 className="font-semibold text-lg mb-4">Follow us</h3>
+                <div className="flex gap-4">
+                  <a href="#" className="p-3 bg-[#1a1a1a] text-white rounded-full hover:bg-[#B8860B] transition-all duration-300 hover:-translate-y-1">
+                    <Github className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="p-3 bg-[#1a1a1a] text-white rounded-full hover:bg-[#B8860B] transition-all duration-300 hover:-translate-y-1">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="p-3 bg-[#1a1a1a] text-white rounded-full hover:bg-[#B8860B] transition-all duration-300 hover:-translate-y-1">
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Contact Form (Right Column) */}
+            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-[#1a1a1a]/5 animate-fade-in-up [animation-delay:400ms]">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-[#1a1a1a]">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-[#FDFBF6] border border-[#1a1a1a]/10 rounded-lg focus:outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] transition-all duration-300 placeholder:text-[#1a1a1a]/30"
+                      placeholder="John Doe"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-[#1a1a1a]">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-[#FDFBF6] border border-[#1a1a1a]/10 rounded-lg focus:outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] transition-all duration-300 placeholder:text-[#1a1a1a]/30"
+                      placeholder="john@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium text-[#1a1a1a]">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-[#FDFBF6] border border-[#1a1a1a]/10 rounded-lg focus:outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] transition-all duration-300 placeholder:text-[#1a1a1a]/30"
+                    placeholder="How can we help?"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-[#1a1a1a]">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-[#FDFBF6] border border-[#1a1a1a]/10 rounded-lg focus:outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] transition-all duration-300 resize-none placeholder:text-[#1a1a1a]/30"
+                    placeholder="Tell us more about your inquiry..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-[#1a1a1a] text-white rounded-lg font-medium text-lg hover:bg-[#B8860B] active:scale-[0.98] transition-all duration-300 flex justify-center items-center gap-2 group"
+                >
+                  Send Message
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
