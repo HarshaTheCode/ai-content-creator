@@ -21,22 +21,19 @@ const App = () => {
       <Routes>
           {/* Route defines the path and the element (component) to render */}
        
-          <Route path="/about" element={
-            <ProtectedRoute>
-              <About />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/contact" element={
-            <ProtectedRoute>
-              <Contact />
-            </ProtectedRoute>
-          } />
+          
 
           <Route path='/details' element={
             <ProtectedRoute>
               <Details />
             </ProtectedRoute>
+          } />
+
+        <Route path='/history' element={
+
+          <ProtectedRoute>
+            <HistoryOfResumes />
+          </ProtectedRoute>
           } />
 
         </Routes>
@@ -46,7 +43,8 @@ const App = () => {
           <Route path="/" element={ <Home />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path='/history' element={<HistoryOfResumes />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} /> 
 
 
         </Routes>

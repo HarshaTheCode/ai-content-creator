@@ -1,4 +1,4 @@
-import Button from './button'
+import Button from './Button'
 import CTAButton from './CTAButton'
 import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -35,7 +35,7 @@ const Navcomponent = () => {
   // If scrolled: use a blurred background matching the theme.
   // If not scrolled: transparent.
   const navBackgroundClass = scrolled
-    ? (isLightBackground ? 'bg-[#FDFBF6]/90 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-black/90 backdrop-blur-md shadow-sm border-b border-white/10')
+    ? (isLightBackground ? 'bg-[#FDFBF6]/10 backdrop-blur-lg shadow-sm border-b border-black/5' : 'bg-black/90 backdrop-blur-md shadow-sm border-b border-white/10')
     : 'bg-transparent';
 
   const navPaddingClass = scrolled ? 'py-3' : 'py-4'; // Slightly smaller when scrolled

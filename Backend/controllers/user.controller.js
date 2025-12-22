@@ -19,7 +19,7 @@ export async function registerUser(req, res) {
     const username = req.body.username
     const email = req.body.email
     const myPlaintextPassword = req.body.password
-
+    
    const hash =await bcrypt.hash(myPlaintextPassword, 10 )
          
         const user = await usermodel.create({

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Trophy } from 'lucide-react';
 import CTAButton from './CTAButton';
+import { div } from 'framer-motion/client';
 
 const Hero = () => {
   const [taglineIndex, setTaglineIndex] = useState(0);
@@ -20,6 +21,9 @@ const Hero = () => {
   }, []);
 
   return (
+
+
+
     <div className="relative h-screen w-full bg-gradient-to-b from-[#FDFBF6] via-[#F4E9D5] to-[#C8B298] overflow-hidden">
       <div className="h-full w-full flex flex-col pt-20">
 
@@ -118,7 +122,10 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+
     </div>
+
   );
 };
 

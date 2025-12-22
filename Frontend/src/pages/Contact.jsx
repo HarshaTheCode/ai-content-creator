@@ -36,8 +36,11 @@ const Contact = () => {
 
           {/* Header Section */}
           <div className="max-w-2xl mb-16 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tight mb-6 text-[#1a1a1a]">
-              Get in touch
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-[#1a1a1a]">
+              Get in 
+            <span className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-[#B8860B]">
+                &nbsp;touch
+            </span>
             </h1>
             <p className="text-lg md:text-xl text-[#4A4A4A] leading-relaxed">
               Have a question about the AI Resume Builder? Interested in partnering?
@@ -57,7 +60,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Email</h3>
+                    <h3 className="font-bold text-lg mb-1">Email</h3>
                     <a href="mailto:hello@airesumebuilder.com" className="text-[#4A4A4A] hover:text-[#B8860B] transition-colors">
                       hello@airesumebuilder.com
                     </a>
@@ -70,7 +73,7 @@ const Contact = () => {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Office</h3>
+                    <h3 className="font-bold text-lg mb-1">Office</h3>
                     <p className="text-[#4A4A4A]">
                       123 Innovation Drive<br />
                       San Francisco, CA 94103
@@ -81,7 +84,7 @@ const Contact = () => {
 
               {/* Social Links */}
               <div>
-                <h3 className="font-semibold text-lg mb-4">Follow us</h3>
+                <h3 className="font-bold text-lg mb-4">Follow us</h3>
                 <div className="flex gap-4">
                   <a href="#" className="p-3 bg-[#1a1a1a] text-white rounded-full hover:bg-[#B8860B] transition-all duration-300 hover:-translate-y-1">
                     <Github className="w-5 h-5" />
