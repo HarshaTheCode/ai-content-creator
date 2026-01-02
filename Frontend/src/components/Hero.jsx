@@ -31,7 +31,7 @@ const Hero = () => {
         <div className="absolute inset-0 pointer-events-none z-30">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl mx-auto">
             <img
-              src="/model3.png"
+              src="/model.png"
               alt="Professional Developer"
               className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[65vh] md:h-[95vh] object-contain drop-shadow-2xl"
             />

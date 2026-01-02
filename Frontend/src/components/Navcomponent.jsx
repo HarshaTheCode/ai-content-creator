@@ -1,11 +1,14 @@
 import Button from './Button'
 import CTAButton from './CTAButton'
 import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { Authcontextdata } from '../context/AuthContext'
 
 const Navcomponent = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+
+  const { isAuth } = useContext(Authcontextdata);
 
   // Extend this list with all pages that use the light theme
   const isLightBackground = ['/', '/about', '/contact', '/details', '/history', '/signin', '/signup'].includes(location.pathname);
@@ -48,8 +51,12 @@ const Navcomponent = () => {
         <div className="hidden md:flex gap-2">
           <Button to='/about' className={`${textColorClass} ${hoverBgClass}`}>About</Button>
           <Button to='/contact' className={`${textColorClass} ${hoverBgClass}`}>Contact</Button>
-          <Button to="/details" className={`${textColorClass} ${hoverBgClass}`}>Create resume</Button>
-          <Button to="/history" className={`${textColorClass} ${hoverBgClass}`}>History</Button>
+          {isAuth && (
+            <>
+              <Button to="/details" className={`${textColorClass} ${hoverBgClass}`}>Create resume</Button>
+              <Button to="/history" className={`${textColorClass} ${hoverBgClass}`}>History</Button>
+            </>
+          )}
         </div>
 
       </div>
