@@ -1,14 +1,29 @@
 import Button from './Button'
 import CTAButton from './CTAButton'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react'
 import { Authcontextdata } from '../context/AuthContext'
+import axios from 'axios'
 
 const Navcomponent = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
-  const { isAuth } = useContext(Authcontextdata);
+  const { isAuth, setIsAuth, setLoading } = useContext(Authcontextdata);
+
+  const handleSignOut = async () => {
+    try {
+      // Call logout endpoint if you have one
+      await axios.post('/auth/logout');
+    } catch (error) {
+      console.error('Logout error:', error);
+    } finally {
+      setIsAuth(false);
+      setLoading(true);
+      navigate('/');
+    }
+  };
 
   // Extend this list with all pages that use the light theme
   const isLightBackground = ['/', '/about', '/contact', '/details', '/history', '/signin', '/signup'].includes(location.pathname);
@@ -68,7 +83,16 @@ const Navcomponent = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
-        <CTAButton to='/signin' className="px-6 py-2 text-sm shadow-md">Sign in</CTAButton>
+        {isAuth ? (
+          <button
+            onClick={handleSignOut}
+            className="group relative inline-flex items-center justify-center bg-[#0f172a] text-white font-medium rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-xl px-6 py-2 text-sm shadow-md cursor-pointer"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <CTAButton to='/signin' className="px-6 py-2 text-sm shadow-md">Sign In</CTAButton>
+        )}
 
       </div>
 

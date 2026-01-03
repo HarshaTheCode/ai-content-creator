@@ -30,7 +30,7 @@ const Signin = () => {
       if (authuser) {
         setIsAuth(true);
         setLoading(false);
-        navigate('/');
+        navigate('/details');
       } else {
         setError("Invalid credentials.");
       }
