@@ -5,11 +5,13 @@ const userschema = mongoose.Schema({
         type:String,
         require:true,
         minlegth:[1,"username must be writen"]
+        
     },
     email:{
         type:String,
         require:true,
-        minlegth:[3,"emmail must be ented to rigister"]
+        minlegth:[3,"emmail must be ented to rigister"],
+        unique:true
     },
     password:{
         type:String,

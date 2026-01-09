@@ -5,12 +5,17 @@ import jwt from "jsonwebtoken";
 
 export async function registerUser(req, res) {
     
-    console.log("registeruser running ");
-
+        
+        console.log("registeruser running ");
+try {
     const errors = validationResult(req);// this will always return an array if the errors there it will 
     //return the errors in it if no errors in it it will give an empaty array 
-
+   
+    console.log(!errors.isEmpty());
+    
     if (!errors.isEmpty()) {
+       
+        
         console.log("invalid detailas", errors.array());
         res.json({ Errors: "the errors from express-vlaidator", errors })
         return;
@@ -40,7 +45,19 @@ export async function registerUser(req, res) {
     await res.cookie("Token", token) 
     console.log("user created ");
     
-
+    
     await res.send("user created ")
+}catch(err){
+    console.log('i am error buddy ',err);
+    if(err.code==11000){
+
+        res.status(400).json({ 
+            success: false,
+            message:  'email alredy exist try with new one ' 
+        })
+    }else{
+        res.status(500).send(err)
+    }
+}
 }
 export default registerUser

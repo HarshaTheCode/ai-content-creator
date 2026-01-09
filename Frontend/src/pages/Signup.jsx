@@ -25,11 +25,18 @@ const Signup = () => {
 
     try {
       const response = await axios.post('/user/registration', data);
+      
       console.log(response);
+      
       navigate('/');
     } catch (err) {
-      console.error(err);
-      setError("Registration failed. Please try again.");
+      console.error(err.response);
+      if(err.response.status==400){
+        
+      setError("User alredy exist try with new mail.");
+      }else { 
+         setError("Registration failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }

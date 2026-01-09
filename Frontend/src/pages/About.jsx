@@ -65,57 +65,11 @@ const About = () => {
           </div>
 
           {/* Section Divider Arrow */}
-          <div className="absolute bottom-[-80px] left-1/2 transform -translate-x-1/2 text-[#D4AF37]/50 animate-bounce">
-            <svg width="24" height="60" viewBox="0 0 24 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 0V58M12 58L1 48M12 58L23 48" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </div>
+         
         </section>
 
         {/* Project Overview Stats */}
-        <section className="mb-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 items-center">
-
-            <div className="space-y-6 max-w-lg">
-              <h2 className="text-4xl font-bold text-[#1A1A1A]">Project Overview</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-6">
-              {/* Stat Card 1 */}
-              <div className="bg-[#FAF9F6] p-8 rounded-xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] text-center flex flex-col justify-center aspect-square border-b-4 border-[#E5E5E5] hover:-translate-y-1 transition-transform">
-                <span className="text-4xl font-bold text-[#1A1A1A]">730</span>
-                <span className="text-sm uppercase tracking-wider text-gray-500 mt-2">Request Handled</span>
-              </div>
-
-              {/* Stat Card 2 */}
-              <div className="bg-[#FAF9F6] p-8 rounded-xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] text-center flex flex-col justify-center aspect-square border-b-4 border-[#E5E5E5] hover:-translate-y-1 transition-transform">
-                <span className="text-4xl font-bold text-[#1A1A1A]">200+</span>
-                <span className="text-sm uppercase tracking-wider text-gray-500 mt-2">Resume Layouts</span>
-              </div>
-
-              {/* Stat Card 3 */}
-              <div className="bg-[#FAF9F6] p-8 rounded-xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] text-center flex flex-col justify-center aspect-square border-b-4 border-[#E5E5E5] hover:-translate-y-1 transition-transform">
-                <span className="text-4xl font-bold text-[#1A1A1A]">100</span>
-                <span className="text-sm uppercase tracking-wider text-gray-500 mt-2">Active Daily Users</span>
-              </div>
-
-              {/* Stat Card 4 - Highlight */}
-              <div className="bg-gradient-to-br from-[#E5C568] to-[#CCA02D] p-8 rounded-xl shadow-lg text-center flex flex-col justify-center aspect-square transform scale-105 hover:scale-110 transition-transform">
-                <span className="text-xl font-bold text-[#1A1A1A] leading-tight">
-                  Built with <br /> modern tech stack.
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
+      
         {/* Technical Journey Timeline */}
         <section className="relative overflow-hidden">
           {/* Ambient Background Glow */}

@@ -10,8 +10,6 @@ import Details from './pages/Details.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import HistoryOfResumes from './pages/HistoryOfResumes.jsx';
 
-
-
 const App = () => {
 
   return (<>
